@@ -4,6 +4,7 @@ import os
 import subprocess
 import sys
 import warnings
+import platform
 
 import numpy
 
