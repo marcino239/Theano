@@ -314,10 +314,13 @@ class NVCC_compiler(object):
             # by not including the one in pymath.h
             cmd.extend(['-D HAVE_ROUND'])
 
-        if local_bitwidth() == 64:
-            cmd.append('-m64')
+        if platform.machine().startwith('arm'):
+            cmd.append('-march=armv7')
         else:
-            cmd.append('-m32')
+            if local_bitwidth() == 64:
+                cmd.append('-m64')
+            else:
+                cmd.append('-m32')
 
         if len(preargs2) > 0:
             cmd.extend(['-Xcompiler', ','.join(preargs2)])

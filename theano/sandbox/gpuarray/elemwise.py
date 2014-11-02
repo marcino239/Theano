@@ -136,7 +136,7 @@ class GpuElemwise(HideC, Elemwise):
 #define signed __int64 int64_t
 #define unsigned __int64 uint64_t
 #else
-#include <stdint.h>
+//#include <stdint.h>
 #endif
 #define ga_bool uint8_t
 #define ga_byte int8_t
@@ -150,6 +150,15 @@ class GpuElemwise(HideC, Elemwise):
 #define ga_float float
 #define ga_double double
 #define ga_half uint16_t
+
+#define int8_t char
+#define uint8_t unsigned char
+#define int16_t short
+#define uint16_t unsigned short
+#define int32_t int
+#define uint32_t unsigned int
+#define int64_t long
+#define uint64_t unsigned long
 
 """
         try:
